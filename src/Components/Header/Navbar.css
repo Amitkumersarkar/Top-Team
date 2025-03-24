@@ -1,8 +1,7 @@
 .s1{
     display: flex;
-    justify-content: flex-end;
     justify-content: space-between;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
     /* position: static; */
 }
