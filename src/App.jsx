@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import Available from './Components/Available/Available'
 import AvailablePlayers from './components/availablePlayers/AvailablePlayers'
@@ -8,11 +9,19 @@ import Selected from './Components/Selected/Selected'
 
 function App() {
 
+  // state declaration for navbar
+  const [coins, setCoins] = useState(0);
+
+  // event handler for navbar
+  const handleAddCoins = (coin) => {
+    setCoins(coins + coin);
+  }
+
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar coins={coins} ></Navbar>
       <div>
-        <HeroSection></HeroSection>
+        <HeroSection handleAddCoins={handleAddCoins}></HeroSection>
       </div>
       <div>
         <AvailablePlayers></AvailablePlayers>
