@@ -17,15 +17,37 @@ function App() {
     setCoins(coins + coin);
   }
 
+  // adding toggle features
+  const [isActive, setIsActive] = useState({
+    Available: true,
+    status: "active"
+  })
+
+  //declared event handler for all players
+  const handleIsActive = (status) => {
+    if (status == "Available") {
+
+      setIsActive({
+        Available: true,
+        status: "Available"
+      })
+    }
+    else {
+      setIsActive({
+        Available: false,
+        status: "Selected"
+      })
+    }
+  }
   return (
     <>
       <Navbar coins={coins} ></Navbar>
       <div>
         <HeroSection handleAddCoins={handleAddCoins}></HeroSection>
       </div>
-      <div>
-        <AvailablePlayers></AvailablePlayers>
-        <div>
+      <div className='w-11/12 mx-auto flex justify-between items-center p-7'>
+        <AvailablePlayers isActive={isActive} handleIsActive={handleIsActive}></AvailablePlayers>
+        <div className='flex gap-5'>
           <Available></Available>
           <Selected></Selected>
         </div>

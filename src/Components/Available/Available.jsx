@@ -1,7 +1,8 @@
 import './Available.css';
-const Available = () => {
+const Available = ({ handleIsActive }) => {
     return (
         <div>
+            <button onClick={() => handleIsActive("Available")} className='text-3xl font-bold text-white '>Available </button>
 
         </div>
     );
